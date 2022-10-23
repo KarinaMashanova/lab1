@@ -1,0 +1,10 @@
+stages:
+  preprocessing:
+    cmd: python .\src\data\preprocess.py
+    deps:
+    - data\raw\test.csv
+    - data\raw\train.csv
+    outs:
+    - .\data\processed\target.pkl
+    - .\data\processed\test.pkl
+    - .\data\processed\train.pkl
