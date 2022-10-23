@@ -5,7 +5,7 @@ from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
 from src.utils import save_as_pickle
 import pandas as pd
-from features import add_early_wakeup
+from features import add_early_wakeup, passive_smoking
 
 
 @click.command()
@@ -20,6 +20,7 @@ def main(input_filepath, output_data_filepath):
 
     df = pd.read_pickle(input_filepath)
     df = add_early_wakeup(df)
+    df = passive_smoking(df)
     save_as_pickle(df, output_data_filepath)
 
 if __name__ == '__main__':
